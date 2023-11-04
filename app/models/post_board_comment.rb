@@ -1,0 +1,2 @@
+class PostBoardComment < ApplicationRecord
+end
