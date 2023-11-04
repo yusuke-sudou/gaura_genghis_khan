@@ -12,12 +12,13 @@ devise_for :admin, skip: [:registrations, :passwords] , controllers: {
   sessions: "admin/sessions"
 }
 
-root 'public/homes#top'
+root 'public/homes#index'
 
 
 ###########public###########
   scope module: :public do
     
+    get 'top' => 'homes#top', as: 'top'
     get 'about' => 'homes#about', as: 'about'
     
 #掲示板投稿コメント
