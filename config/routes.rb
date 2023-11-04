@@ -21,6 +21,10 @@ root 'public/homes#index'
     get 'top' => 'homes#top', as: 'top'
     get 'about' => 'homes#about', as: 'about'
     
+    get 'users/my_page' => 'users#show', as: 'userr'
+    get 'users/information_edit' => 'users#edit', as: 'users_information_edit'
+    patch 'users/information' => 'users#update', as: 'users_information'
+    
 #掲示板投稿コメント
     resources:post_board_comments,only: [:create,:destroy]
  
