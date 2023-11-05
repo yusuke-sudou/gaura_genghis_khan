@@ -21,7 +21,7 @@ root 'public/homes#index'
     get 'top' => 'homes#top', as: 'top'
     get 'about' => 'homes#about', as: 'about'
     
-    get 'users/my_page' => 'users#show', as: 'userr'
+    get 'users/my_page' => 'users#show', as: 'user'
     get 'users/information_edit' => 'users#edit', as: 'users_information_edit'
     patch 'users/information' => 'users#update', as: 'users_information'
     
