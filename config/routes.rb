@@ -61,7 +61,7 @@ root 'public/homes#index'
     resources :genres,only: [:index, :create, :edit, :update]
   
 #顧客関係
-    resources :users,only: [:index, :show, :edit, :update]
+    resources :users,only: [:index, :show, :edit, :update,:destroy]
   
 #レビュー投稿へのコメント  
     resources :review_comments,only: [:index, :destroy]

@@ -13,3 +13,19 @@ Admin.create!(
   password: 'adminmin',
   password_confirmation: 'adminmin',
 )
+
+###############会員情報#############
+
+yamada_taro_num = 5
+
+yamada_taro_num.times do |num|
+  num += 1 #numが「0」スタートなので「1」スタートに調整
+  Customer.create!(
+    name: "山田太郎#{num}",
+    email: "yamada@taro#{num}",
+    encrypted_password: 'yamadataro',
+    password: 'yamadataro',
+    password_confirmation: 'yamadataro',
+    is_active: true
+  )
+end
