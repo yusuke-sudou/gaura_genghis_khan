@@ -5,22 +5,22 @@
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field row mt-5">
-    <%= f.label :名前,class:"col-3" %><br>
+    <%= f.label :name, "名前", class:"col-3" %><br>
     <%= f.text_field :name,class:"col-5" %>
   </div>
   
   <div class="field row mt-3">
-    <%= f.label :メールアドレス,class:"col-3" %><br />
+    <%= f.label :email, "メールアドレス" ,class:"col-3" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"col-5" %>
   </div>
 
   <div class="field row mt-3">
-    <%= f.label :"パスワード(6文字以上)",class:"col-3" %>
+    <%= f.label :password, "パスワード(6文字以上)",class:"col-3" %>
     <%= f.password_field :password, autocomplete: "off" ,class:"col-5" %>
   </div>
 
   <div class="field row mt-3">
-    <%= f.label :パスワード（確認用）,class:"col-3" %><br />
+    <%= f.label :password_confirmation, "パスワード（確認用）", class:"col-3" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"col-5" %>
   </div>
 
