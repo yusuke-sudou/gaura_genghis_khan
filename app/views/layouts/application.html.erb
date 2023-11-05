@@ -32,7 +32,7 @@
               <% if request.fullpath.include?("/admin") && admin_signed_in? %>
                 <%= link_to "メニュー", admin_menus_path, class: "btn btn-warning font-weight-bold mx-3" %>
                 <%= link_to "顧客", admin_users_path, class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "コミュニティ", admin_community_path, class: "btn btn-warning font-weight-bold mx-3" %>
+                <%= link_to "コミュニティ", admin_communitys_path, class: "btn btn-warning font-weight-bold mx-3" %>
                 <%= link_to "ジャンル", admin_genres_path, class: "btn btn-warning font-weight-bold mx-3" %>
                 <%= link_to "レビューコメント", admin_review_comments_path, class: "btn btn-warning font-weight-bold mx-3" %>
                 <%= link_to "掲示板コメント", admin_post_board_comments_path, class: "btn btn-warning font-weight-bold mx-3" %>
