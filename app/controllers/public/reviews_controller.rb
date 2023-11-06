@@ -7,9 +7,14 @@ class Public::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.save
-    flash[:notice] = "投稿に成功しました。"
-    redirect_to reviews_path
+    if @review.save
+      flash[:notice] = "投稿に成功しました。"
+      @reviews = Review.all
+      redirect_to reviews_path
+    else
+      @reviews = Review.all
+      render :index
+    end
   end
   
   def show
@@ -21,10 +26,13 @@ class Public::ReviewsController < ApplicationController
   end
   
   def update
-    review = Review.find(params[:id])
-    review.update(review_params)
-    flash[:notice] = "更新に成功しました。"
-    redirect_to review_path(review.id) 
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      flash[:notice] = "更新に成功しました。"
+      redirect_to review_path(@review.id) 
+    else
+      render :edit
+    end
   end
   
   def destroy
