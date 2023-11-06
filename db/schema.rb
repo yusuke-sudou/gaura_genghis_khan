@@ -99,8 +99,8 @@ ActiveRecord::Schema.define(version: 2023_11_04_052113) do
   end
 
   create_table "review_comments", force: :cascade do |t|
-    t.integer "revier_id", null: false
-    t.text "body", null: false
+    t.integer "review_id", null: false
+    t.text "comment", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

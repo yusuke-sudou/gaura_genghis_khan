@@ -35,10 +35,12 @@ root 'public/homes#index'
     resources:favorites,only: [:index,:create,:destroy]
   
 #レビューコメント
-    resources:review_comments,only: [:create,:destroy]
+    
   
 #レビュー投稿
-    resources:reviews,only: [:create,:show,:index, :show,:update,:edit,:destroy]
+    resources:reviews,only: [:create,:show,:index, :show,:update,:edit,:destroy]do
+        resources:review_comments,only: [:create,:destroy]
+    end
   
 #顧客関係（マイページ、登録情報編集、登録情報更新、一覧画面）
     resources:users,only: [:index, :show,:update,:edit]

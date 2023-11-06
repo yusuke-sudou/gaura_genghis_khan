@@ -26,6 +26,7 @@
       <h5 class="list-group-item">タイトル：<%= review.title %></h5>
       <p class="list-group-item"><%= review.body %></p>
       <h6 class="list-group-item">ユーザーネーム：　<%= review.user.name %></h6>
+      <h6 class="list-group-item"><%= link_to "#{review.review_comments.count} コメント", review_path(review.id) %></h6>
       <h6 class="list-group-item mt-2"><%= link_to "詳細ページはこちら",review_path(review.id) %></h6>
       </div>
       </div>
