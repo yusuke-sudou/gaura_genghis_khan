@@ -1,15 +1,20 @@
-<h1>新規投稿</h1>
+<h3>投稿はこちら！</h3>
 
 <%= form_with model: @review do |f| %>
-
-  <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
   
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
+  <div>
+  <%= f.label :title,"タイトル" %><br />
+  <%= f.text_field :title,class:"col-10" %>
+  </div>
   
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-  <%= f.submit '投稿' %>
+  <div>
+  <%= f.label :body,"本文" %><br />
+  <%= f.text_area :body,class:"col-10" %>
+  </div>
   
+  <%= f.file_field :image, accept: "image/*",class:"mt-2" %>
+  
+  <div>
+  <%= f.submit '投稿',class: "btn btn-sm btn-success px-5 mb-2 mt-2"  %>
+  </div>
 <% end %>
