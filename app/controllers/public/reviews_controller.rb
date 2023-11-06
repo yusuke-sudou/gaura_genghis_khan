@@ -12,9 +12,17 @@ class Public::ReviewsController < ApplicationController
   end
   
   def show
+    @review = Review.find(params[:id]) 
   end
 
   def edit
+    @review = Review.find(params[:id])
+  end
+  
+  def update
+    review = Review.find(params[:id])
+    review.update(review_params)
+    redirect_to review_path(review.id) 
   end
   
   private

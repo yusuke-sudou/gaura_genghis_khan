@@ -14,5 +14,6 @@
   
   <p>ユーザーネーム</p>
   <span><%= review.user.name %></span>
+  <%= link_to "詳細",review_path(review.id) %>
   
 <% end %>
