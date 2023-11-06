@@ -38,7 +38,7 @@ root 'public/homes#index'
     resources:review_comments,only: [:create,:destroy]
   
 #レビュー投稿
-    resources:reviews,only: [:index, :show,:update,:edit,:destroy]
+    resources:reviews,only: [:create,:show,:index, :show,:update,:edit,:destroy]
   
 #顧客関係（マイページ、登録情報編集、登録情報更新、一覧画面）
     resources:users,only: [:index, :show,:update,:edit]
