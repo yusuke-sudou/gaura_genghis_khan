@@ -8,6 +8,7 @@ class Public::ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.save
+    flash[:notice] = "投稿に成功しました。"
     redirect_to reviews_path
   end
   
@@ -22,6 +23,7 @@ class Public::ReviewsController < ApplicationController
   def update
     review = Review.find(params[:id])
     review.update(review_params)
+    flash[:notice] = "更新に成功しました。"
     redirect_to review_path(review.id) 
   end
   
