@@ -30,15 +30,10 @@ root 'public/homes#index'
  
 #掲示板投稿
     resources:post_boards,only: [:index,:create,:destroy]
- 
-#いいね機能
-    resources:favorites,only: [:index,:create,:destroy]
   
-#レビューコメント
-    
-  
-#レビュー投稿
+#レビュー投稿(いいね機能・コメント機能付き)
     resources:reviews,only: [:create,:show,:index, :show,:update,:edit,:destroy]do
+        resource:favorites,only: [:create,:destroy]
         resources:review_comments,only: [:create,:destroy]
     end
   
