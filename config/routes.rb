@@ -21,24 +21,20 @@ root 'public/homes#index'
     get 'top' => 'homes#top', as: 'top'
     get 'about' => 'homes#about', as: 'about'
     
-    get 'users/my_page' => 'users#show', as: 'user'
+    get 'users/my_page' => 'users#show', as: 'user' 
     get 'users/information_edit' => 'users#edit', as: 'users_information_edit'
     patch 'users/information' => 'users#update', as: 'users_information'
+    get 'users/favorites' => 'users#favorites', as: 'user_favorites'
     
 #掲示板投稿コメント
     resources:post_board_comments,only: [:create,:destroy]
  
 #掲示板投稿
     resources:post_boards,only: [:index,:create,:destroy]
- 
-#いいね機能
-    resources:favorites,only: [:index,:create,:destroy]
   
-#レビューコメント
-    
-  
-#レビュー投稿
+#レビュー投稿(いいね機能・コメント機能付き)
     resources:reviews,only: [:create,:show,:index, :show,:update,:edit,:destroy]do
+        resource:favorites,only: [:create,:destroy]
         resources:review_comments,only: [:create,:destroy]
     end
   

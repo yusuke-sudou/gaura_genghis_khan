@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   def show
     @user = current_user
+    @reviews = Review.all
   end
 
   def edit
@@ -15,6 +16,13 @@ class Public::UsersController < ApplicationController
         else
         render :edit
         end 
+  end
+  
+  def favorites
+    @review = Review.new
+    @user = current_user
+    @favorite_reviews = @user.favorites.includes(:review)
+    render 'favorites'
   end
   
   private
