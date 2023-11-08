@@ -53,7 +53,7 @@ root 'public/homes#index'
     resources :communitys,only: [:index, :create, :show, :edit, :update, :destroy]
   
 #メニュー
-    resources :menus,only: [:index, :new, :create, :show, :edit, :update]
+    resources :menus,only: [:index, :new, :create, :show, :edit, :update, :destroy]
   
 #ジャンル  
     resources :genres,only: [:index, :create, :edit, :update]

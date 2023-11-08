@@ -26,9 +26,26 @@ class Admin::MenusController < ApplicationController
   end
 
   def edit
+    @menu = Menu.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
+    @menu = Menu.find(params[:id])
+    if @menu.update(menu_params)
+      # メニューの更新が成功した場合の処理
+      redirect_to admin_menu_path(@menu.id)
+    else
+      # メニューの更新が失敗した場合の処理
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
+    # メニューの削除が成功した場合の処理
+    redirect_to admin_menus_path
   end
   
   private
