@@ -1,2 +1,25 @@
-<h1>Admin::Menus#new</h1>
-<p>Find me in app/views/admin/menus/new.html.erb</p>
+<%= form_with(model: @menu, url: admin_menus_path, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :explannation %>
+    <%= form.text_field :explannation %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre_id %>
+    <%= form.select :genre_id, options_for_select(@genres.map { |genre| [genre.name, genre.id] }) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit '登録する' %>
+  </div>
+<% end %>

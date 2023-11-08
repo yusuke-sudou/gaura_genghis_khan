@@ -1,2 +1,10 @@
-<h1>Admin::Menus#index</h1>
-<p>Find me in app/views/admin/menus/index.html.erb</p>
+<% @menus_by_genre.each do |genre_id, menus| %>
+  <h2><%= Genre.find(genre_id).name %></h2>
+  <ul>
+    <% menus.each do |menu| %>
+      <li><%= menu.name %></li>
+      <li><%= menu.explannation %></li>
+      <li><%= menu.price %></li>
+    <% end %>
+  </ul>
+<% end %>
