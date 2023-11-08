@@ -1,2 +1,51 @@
-<h1>Admin::Menus#edit</h1>
-<p>Find me in app/views/admin/menus/edit.html.erb</p>
+<div class="container">
+  <h3 class="row py-4">メニュー編集</h3>
+  
+  <div class="row py-3">
+    <div class="col-md-3">
+      <% if @menu.image.attached? %>
+        <%= image_tag @menu.image, size: "200x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+      <% end %>
+    </div>
+  
+    <div class="col-md-8">
+      <%= form_with(model: @menu, url: admin_menu_path(@menu), method: :patch) do |form| %>
+        <div class="row">
+          <div class="col-md-3">メニュー名</div>
+          <div class="col-md-6">
+            <%= form.text_field :name %>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3">説明</div>
+          <div class="col-md-6">
+            <%= form.text_area :explannation %>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3">税抜価格</div>
+          <div class="col-md-6">
+            <%= form.number_field :price %>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3">ジャンル</div>
+          <div class="col-md-6">
+            <%= form.collection_select :genre_id, @genres, :id, :name %>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <%= form.submit '更新', class:"btn btn-success mt-3" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
