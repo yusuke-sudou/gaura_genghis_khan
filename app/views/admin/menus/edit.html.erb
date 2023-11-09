@@ -7,6 +7,7 @@
   </ul>
 <% end %>
 
+
 <div class="container">
   <h3 class="row py-4">メニュー編集</h3>
   
@@ -21,6 +22,14 @@
   
     <div class="col-md-8">
       <%= form_with(model: @menu, url: admin_menu_path(@menu), method: :patch) do |f| %>
+      
+        <div class="row">
+          <div class="col-md-3">画像</div>
+          <div class="col-md-6">
+            <%= f.file_field :image, accept: "image/*" %>
+          </div>
+        </div>
+      
         <div class="row">
           <div class="col-md-3">メニュー名</div>
           <div class="col-md-6">

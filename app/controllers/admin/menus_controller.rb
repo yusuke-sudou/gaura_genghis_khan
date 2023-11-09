@@ -9,11 +9,13 @@ class Admin::MenusController < ApplicationController
   end
 
   def create
+    @genres = Genre.all
     @menu = Menu.new(menu_params)
     # ジャンルの情報を関連付けるために、ジャンルIDを設定する例
     @menu.genre_id = params[:menu][:genre_id]
     if @menu.save
       # メニューの新規登録が成功した場合の処理
+      flash[:notice] = "登録に成功しました。"
       redirect_to admin_menu_path(@menu.id)
     else
       # メニューの新規登録が失敗した場合の処理
@@ -31,9 +33,11 @@ class Admin::MenusController < ApplicationController
   end
 
   def update
+    @genres = Genre.all
     @menu = Menu.find(params[:id])
     if @menu.update(menu_params)
       # メニューの更新が成功した場合の処理
+      flash[:notice] = "更新に成功しました。"
       redirect_to admin_menu_path(@menu.id)
     else
       # メニューの更新が失敗した場合の処理
@@ -45,6 +49,7 @@ class Admin::MenusController < ApplicationController
     @menu = Menu.find(params[:id])
     @menu.destroy
     # メニューの削除が成功した場合の処理
+    flash[:notice] = "削除に成功しました。"
     redirect_to admin_menus_path
   end
   
