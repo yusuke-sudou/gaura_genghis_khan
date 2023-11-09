@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3 mt-5">
+      <%= render 'public/reviews/new', review: @review %>
+    </div>
+    
+    <div class="col-md-8 offset-md-1 mt-5">
+      <h3 class="mb-3">いいねした投稿一覧</h3>
+      <% @favorite_reviews.each do |favorite| %>
+        <div class="card mt-3">
+          <%= image_tag favorite.review.image %>
+            <div class="card-body">
+              <div class="list-group list-group-flush">
+                <p>投稿日時: <%= favorite.review.created_at.strftime('%Y/%m/%d') %></p>
+                <h5 class="list-group-item">タイトル: <%= favorite.review.title %></h5>
+                <p class="list-group-item"> <%= favorite.review.body %></p>
+                <h6 class="list-group-item">ユーザー名: <%= favorite.review.user.name %></h6>
+                <h6 class="list-group-item"><%= link_to "詳細ページはこちら",review_path(favorite.review_id) %></h6>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

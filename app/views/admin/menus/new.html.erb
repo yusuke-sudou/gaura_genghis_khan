@@ -1,0 +1,63 @@
+<% if @menu.errors.any? %>
+  <%= @menu.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @menu.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="container mt-5">
+  <div class="row mt-3">
+    <h3>メニュー新規登録画面</h3>
+  </div>
+  
+<%= form_with(model: @menu, url: admin_menus_path, local: true) do |f| %>
+  <div class="row mt-3">
+    <div class="col-md-2">商品画像</div>
+    <div class="col-md-4">
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <div class="col-md-2">
+      <%= f.label :name,"名前" %>
+    </div>
+    <div class="col-md-5">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-2">
+      <%= f.label :explanation,"説明" %>
+    </div>
+    <div class="col-md-5">
+      <%= f.text_area :explanation, style:"height:100px", rows:"5" %>
+    </div>
+  </div>
+  
+  <div class="row mt-3">
+    <div class="col-md-2">
+      <%= f.label :price,"税抜価格" %>
+    </div>
+    <div class="col-md-5">
+      <%= f.number_field :price %>円
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-2">
+      <%= f.label :genre_id,"ジャンル" %>
+    </div>
+    <div class="col-md-5">
+      <%= f.select :genre_id, options_for_select(@genres.map { |genre| [genre.name, genre.id] }), include_blank: "--選択してください--" %>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <%= f.submit '新規登録', class:"btn btn-success" %>
+  </div>
+<% end %>
+</div>

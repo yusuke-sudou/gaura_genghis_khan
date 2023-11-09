@@ -1,0 +1,29 @@
+
+<div class="container mt-5">
+  <h3 class"mb-3">メニュ一覧</h3>
+  
+  <div class="col-md-1 offset-9 align-items-center pt-3">
+      <%= link_to new_admin_menu_path, style: "color: success; font-size: 20px" do %>
+      <i class="fa-solid fa-circle-plus fa-xl"></i>
+      <% end %>
+  </div>
+  
+  <div class="mt-3">  
+    <% @menus_by_genre.each do |genre_id, menus| %>
+      <h4><%= Genre.find(genre_id).name %></h4>
+      <div class="row justify-content-center bg-light mx-5 border-top py-2">
+        <div class="col-md-3"><strong>商品名</strong></div>
+        <div class="col-md-2"><strong>税抜価格</strong></div>
+        <div class="col-md-2 px-0"><strong></strong></div>
+      </div>
+      
+      <% menus.each do |menu| %>
+        <div class="row justify-content-center mx-5 py-1">
+            <div class="col-md-3"><%= menu.name %></div>
+            <div class="col-md-2"><%= menu.price %></div>
+            <div class="col-md-2"><%= link_to"詳細ページへ",admin_menu_path(menu.id) %></div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>  
+</div>
