@@ -3,28 +3,29 @@
   <h3 class="row py-4">メニュー詳細</h3>
     
     <div class="row py-3">
-      <div class="col-md-3">
+      <div class="col-md-12">
         <% if @menu.image.attached? %>
-          <%= image_tag @menu.image, size: "200x200" %>
+          <%= image_tag @menu.image, size: "500x500" %>
         <% else %>
-          <%= image_tag 'no_image', size: "200x200" %>
+          <%= image_tag 'no_image', size: "500x500" %>
         <% end %>
       </div>
+    </div>
     
-      <div class="col-md-8">
+    <div class="row py-3">
+      <div class="col-md-12">
         <div class="row">
-          <div class="col-md-3">メニュー名</div>
-          <div class="col-md-6"><%= @menu.name %></div>
+          <div class="col-md-2">メニュー名:</div>
+          <div class="col-md-10"><%= @menu.name %></div>
         </div>
         
-        <div class="row">
-          <div class="col-md-3">税抜価格</div>
-          <div class="col-md-6"><%= @menu.price %>円</div>
+        <div class="row mt-2">
+          <div class="col-md-2">税抜価格:</div>
+          <div class="col-md-10"><%= @menu.price %>円</div>
         </div>
         
-        <div class="row">
-          <div class="col-md-3">説明</div>
-          <div class="col-md-6"><%= @menu.explanation %></div>
+        <div class="row mb-5 mt-2">
+          <div class="col-md-12"><%= @menu.explanation %></div>
         </div>
         
         </div>
