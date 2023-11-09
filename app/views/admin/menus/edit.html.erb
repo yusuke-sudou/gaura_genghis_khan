@@ -1,3 +1,12 @@
+<% if @menu.errors.any? %>
+  <%= @menu.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @menu.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <div class="container">
   <h3 class="row py-4">メニュー編集</h3>
   
@@ -11,38 +20,38 @@
     </div>
   
     <div class="col-md-8">
-      <%= form_with(model: @menu, url: admin_menu_path(@menu), method: :patch) do |form| %>
+      <%= form_with(model: @menu, url: admin_menu_path(@menu), method: :patch) do |f| %>
         <div class="row">
           <div class="col-md-3">メニュー名</div>
           <div class="col-md-6">
-            <%= form.text_field :name %>
+            <%= f.text_field :name %>
           </div>
         </div>
         
         <div class="row">
           <div class="col-md-3">説明</div>
           <div class="col-md-6">
-            <%= form.text_area :explannation %>
+            <%= f.text_area :explanation %>
           </div>
         </div>
         
         <div class="row">
           <div class="col-md-3">税抜価格</div>
           <div class="col-md-6">
-            <%= form.number_field :price %>
+            <%= f.number_field :price %>
           </div>
         </div>
         
         <div class="row">
           <div class="col-md-3">ジャンル</div>
           <div class="col-md-6">
-            <%= form.collection_select :genre_id, @genres, :id, :name %>
+            <%= f.collection_select :genre_id, @genres, :id, :name %>
           </div>
         </div>
         
         <div class="row">
           <div class="col-md-6">
-            <%= form.submit '更新', class:"btn btn-success mt-3" %>
+            <%= f.submit '更新', class:"btn btn-success mt-3" %>
           </div>
         </div>
       <% end %>
