@@ -22,10 +22,10 @@
 
   <div class="row mt-3">
     <div class="col-md-2">
-      <%= f.label :explannation,"説明" %>
+      <%= f.label :explanation,"説明" %>
     </div>
     <div class="col-md-5">
-      <%= f.text_area :explannation, style:"height:100px", rows:"5" %>
+      <%= f.text_area :explanation, style:"height:100px", rows:"5" %>
     </div>
   </div>
   
@@ -34,7 +34,7 @@
       <%= f.label :price,"税抜価格" %>
     </div>
     <div class="col-md-5">
-      <%= f.text_field :price %>円
+      <%= f.number_field :price %>円
     </div>
   </div>
 

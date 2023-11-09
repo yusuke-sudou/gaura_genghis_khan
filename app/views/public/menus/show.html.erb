@@ -1,2 +1,32 @@
-<h1>Public::Menus#show</h1>
-<p>Find me in app/views/public/menus/show.html.erb</p>
+<div class="container">
+  
+  <h3 class="row py-4">メニュー詳細</h3>
+    
+    <div class="row py-3">
+      <div class="col-md-3">
+        <% if @menu.image.attached? %>
+          <%= image_tag @menu.image, size: "200x200" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "200x200" %>
+        <% end %>
+      </div>
+    
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3">メニュー名</div>
+          <div class="col-md-6"><%= @menu.name %></div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3">税抜価格</div>
+          <div class="col-md-6"><%= @menu.price %>円</div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3">説明</div>
+          <div class="col-md-6"><%= @menu.explanation %></div>
+        </div>
+        
+        </div>
+    </div>
+</div>
