@@ -1,9 +1,19 @@
 class Public::ReviewsController < ApplicationController
+  # def index
+  #   @review = Review.new
+  #   @reviews = Review.all
+  # end
+  
   def index
     @review = Review.new
-    @reviews = Review.all
+    @q = Review.ransack(params[:q])
+    if params[:q].present?
+      @reviews = @q.result(distinct: true)
+    else
+      @reviews = Review.all
+    end
   end
-
+  
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
@@ -44,6 +54,7 @@ class Public::ReviewsController < ApplicationController
     flash[:notice] = "削除に成功しました。"
     redirect_to reviews_path
   end
+  
   
   private
   
