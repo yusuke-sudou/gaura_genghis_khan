@@ -19,6 +19,7 @@ class Admin::MenusController < ApplicationController
       redirect_to admin_menu_path(@menu.id)
     else
       # メニューの新規登録が失敗した場合の処理
+      flash.now[:alert] = "登録に失敗しました"
       render 'new'
     end
   end
@@ -41,6 +42,7 @@ class Admin::MenusController < ApplicationController
       redirect_to admin_menu_path(@menu.id)
     else
       # メニューの更新が失敗した場合の処理
+      flash.now[:alert] = "更新に失敗しました"
       render 'edit'
     end
   end

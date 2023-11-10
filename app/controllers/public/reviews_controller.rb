@@ -13,6 +13,7 @@ class Public::ReviewsController < ApplicationController
       redirect_to reviews_path
     else
       @reviews = Review.all
+      flash.now[:alert] = "登録に失敗しました"
       render :index
     end
   end
@@ -32,13 +33,15 @@ class Public::ReviewsController < ApplicationController
       flash[:notice] = "更新に成功しました。"
       redirect_to review_path(@review.id) 
     else
+      flash.now[:alert] = "更新に失敗しました"
       render :edit
     end
   end
   
   def destroy
     review = Review.find(params[:id])  
-    review.destroy  
+    review.destroy
+    flash[:notice] = "削除に成功しました。"
     redirect_to reviews_path
   end
   
