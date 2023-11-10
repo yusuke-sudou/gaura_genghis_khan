@@ -1,9 +1,19 @@
 class Public::ReviewsController < ApplicationController
+  # def index
+  #   @review = Review.new
+  #   @reviews = Review.all
+  # end
+  
   def index
     @review = Review.new
-    @reviews = Review.all
+    @q = Review.ransack(params[:q])
+    if params[:q].present?
+      @reviews = @q.result(distinct: true)
+    else
+      @reviews = Review.all
+    end
   end
-
+  
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
@@ -13,6 +23,7 @@ class Public::ReviewsController < ApplicationController
       redirect_to reviews_path
     else
       @reviews = Review.all
+      flash.now[:alert] = "登録に失敗しました"
       render :index
     end
   end
@@ -32,15 +43,18 @@ class Public::ReviewsController < ApplicationController
       flash[:notice] = "更新に成功しました。"
       redirect_to review_path(@review.id) 
     else
+      flash.now[:alert] = "更新に失敗しました"
       render :edit
     end
   end
   
   def destroy
     review = Review.find(params[:id])  
-    review.destroy  
+    review.destroy
+    flash[:notice] = "削除に成功しました。"
     redirect_to reviews_path
   end
+  
   
   private
   
