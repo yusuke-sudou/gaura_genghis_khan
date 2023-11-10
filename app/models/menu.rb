@@ -13,4 +13,8 @@ class Menu < ApplicationRecord
     image
   end
   
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name price genre_id] # 検索可能な属性を指定してください
+  end
+  
 end
