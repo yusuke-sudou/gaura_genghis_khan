@@ -1,14 +1,25 @@
-<h2>ようこそガウラジンギスカンへ！！</h2>
-
-<div>
-  <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+<div class="niku">
+  <div>""</div>
+<%#= image_tag "jinjin.jpg", style: "width: 100%;" %>
+  <div class="container">
+    <div class="square ">
+    <div class="text-center">
+      <h2>ようこそガウラジンギスカンへ！！</h2>
+      <h5>ガウラジンギスカンのホームページになります。</h5>
+      <h5>こちらのホームページでは投稿を通してお客様同士のコミュニティの場を提供しております。</h5>
+    </div>
+    
+    <div class="text-center">
+      <div>
+        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary col-3 mt-2", method: :post %>
+      </div>
+      <div>
+        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success col-3 mt-2" %>
+      </div>
+      <div>
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-info col-3 mt-2" %>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div>
-  <%= link_to "新規登録", new_user_registration_path %>
-</div>
-
-<div>
-  <%= link_to "ログイン", new_user_session_path %>
-</div>
-

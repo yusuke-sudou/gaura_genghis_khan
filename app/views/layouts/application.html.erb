@@ -7,12 +7,13 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/f2af7461b5.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     
-    <header class="bg-warning py-2">
+    <header class="bg-dark py-2">
       <nav class="container-fluid">
         <div class="row justify-content-between align-items-center">
           <div>
@@ -22,33 +23,33 @@
           </div>
           <% if user_signed_in? && !request.fullpath.include?("/admin") %>
             <div class="ml-auto">
-              <p class="text-center text-white font-weight-bold h5 mb-0">
+              <p class="text-center text-white font-weight-bold h5">
                 ようこそ、<%= current_user.name %>さん!
               </p>
             </div>
           <% end %>
-          <div class="ml-auto"> 
-            <div class="row justify-content-between align-items-center pb-1">
+          <div class="ml-auto col-4"> 
+            <div class="row justify-content-between align-items-center">
               <% if request.fullpath.include?("/admin") && admin_signed_in? %>
-                <%= link_to "メニュー", admin_menus_path, class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "顧客", admin_users_path, class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "コミュニティ", admin_communitys_path, class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "ジャンル", admin_genres_path, class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "レビューコメント", admin_review_comments_path, class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "掲示板コメント", admin_post_board_comments_path, class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-warning font-weight-bold mx-3" %>
+                <%= link_to "メニュー", admin_menus_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "顧客", admin_users_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "コミュニティ", admin_communitys_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "ジャンル", admin_genres_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "レビューコメント", admin_review_comments_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "掲示板コメント", admin_post_board_comments_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-dark font-weight-bold" %>
               <% elsif user_signed_in? %>
-                <%= link_to "マイページ", user_path,class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "メニュー", menus_path,class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "掲示板", post_boards_path,class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "レビュー", reviews_path,class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "btn btn-warning font-weight-bold mx-3" %>
+                <%= link_to "マイページ", user_path,class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "メニュー", menus_path,class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "掲示板", post_boards_path,class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "レビュー", reviews_path,class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "btn btn-dark font-weight-bold" %>
               <% else %>
-                <%= link_to "About", about_path,class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "メニュー", menus_path,class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "新規登録", new_user_registration_path,class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "ログイン", new_user_session_path,class: "btn btn-warning font-weight-bold mx-3" %>
-                <%= link_to "管理者ログイン", new_admin_session_path,class: "btn btn-warning font-weight-bold mx-3" %>
+                <%= link_to "About", about_path,class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "メニュー", menus_path,class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "新規登録", new_user_registration_path,class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "ログイン", new_user_session_path,class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "管理者ログイン", new_admin_session_path,class: "btn btn-dark font-weight-bold" %>
               <% end %>
             </div>
           </div>
