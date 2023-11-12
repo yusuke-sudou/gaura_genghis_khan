@@ -1,2 +1,75 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="aboutback">
+  
+  <div class="square">
+    <h2 class="text-center">ようこそ、ガウラジンギスカンへ！</h2>
+  </div>
+  
+<div class="container">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide">
+        <%= image_tag asset_path('jin3.jpg'), alt: '' %>
+      </div>
+      
+      <div class="swiper-slide">
+        <%= image_tag asset_path('mo2.jpg'), alt: '' %>
+      </div>
+      
+      <div class="swiper-slide">
+        <%= image_tag asset_path('hiboll.jpg'), alt: '' %>
+      </div>
+      
+    </div>
+    <!-- ページネーション -->
+    <div class="swiper-pagination"></div>
+    <!-- 前後の矢印 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  
+  <script>
+    const swiper = new Swiper(".swiper", {
+    loop: true, // ループ
+    speed: 3000, // 少しゆっくり(デフォルトは300)
+    autoplay: { // 自動再生
+      delay: 1000, // 1秒後に次のスライド
+      disableOnInteraction: false, // 矢印をクリックしても自動再生を止めない
+    },
+    // ページネーション
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    // 前後の矢印
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+  </script>
+  
+</div>
+  <div class="square">
+    <h3 class="text-center">お店情報</h3>
+  </div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-5 m-1">
+      <%= image_tag "ten", size: "300x300" %>
+    </div>
+    <div class="col-6 text-white mt-4">
+      <h4 class="mb-2">ガウラジンギスカン</h4>
+      <p>〒299-0000</p>
+      <p>千葉県袖ケ浦市何処町1-1-1</p>
+      <p>★JR袖〇駅より徒歩2分</p>
+      <p>0438-00-0000</p>
+      <p>17:00~24:00（フード23：00　ドリンク23：30）</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
