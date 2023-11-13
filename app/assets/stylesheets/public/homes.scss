@@ -1,3 +1,23 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 最初の画面の背景写真
+.niku {
+     background-image: image-url("jinjin2.jpg");
+     background-size: 100%;
+     width: 100%;
+     height: 95vh;
+   }
+   
+// 文字と各ボタンを囲う
+.square {
+  background-color: rgba( 255, 255, 255, 0.7 );
+  // 最後の0.6のところで濃さを設定。1.0が最も濃い
+  padding:20px;
+}
+
+.aboutback {
+    background-color: #333631;
+}
+
