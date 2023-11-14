@@ -4,12 +4,12 @@
   
   <div>
   <%= f.label :title,"タイトル" %><br />
-  <%= f.text_field :title,class:"col-10" %>
+  <%= f.text_field :title,class:"col-10 form-control"%>
   </div>
   
   <div>
   <%= f.label :body,"本文" %><br />
-  <%= f.text_area :body,class:"col-10" %>
+  <%= f.text_area :body,class:"col-10 form-control"%>
   </div>
   
   <%= f.file_field :image, accept: "image/*",class:"mt-2" %>
