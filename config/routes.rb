@@ -54,7 +54,7 @@ root 'public/homes#index'
 #ホーム
     get 'homes/top'
 #コミュニティ
-    resources :communitys,only: [:index, :create, :show, :edit, :update, :destroy]
+    resources :communities,only: [:index, :create, :show, :edit, :update, :destroy]
   
 #メニュー
     resources :menus,only: [:index, :new, :create, :show, :edit, :update, :destroy]

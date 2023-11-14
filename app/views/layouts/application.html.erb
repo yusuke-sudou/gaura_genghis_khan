@@ -35,11 +35,11 @@
               <% if request.fullpath.include?("/admin") && admin_signed_in? %>
                 <%= link_to "メニュー", admin_menus_path, class: "btn btn-dark font-weight-bold" %>
                 <%= link_to "顧客", admin_users_path, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "コミュニティ", admin_communitys_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "コミュニティ", admin_communities_path, class: "btn btn-dark font-weight-bold" %>
                 <%= link_to "ジャンル", admin_genres_path, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "レビューコメント", admin_review_comments_path, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "掲示板コメント", admin_post_board_comments_path, class: "btn btn-dark font-weight-bold" %>
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "掲示板コメント", admin_post_board_comments_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "レビューコメント", admin_review_comments_path, class: "btn btn-dark font-weight-bold" %>
               <% elsif user_signed_in? %>
                 <%= link_to "マイページ", user_path,class: "btn btn-dark font-weight-bold" %>
                 <%= link_to "メニュー", menus_path,class: "btn btn-dark font-weight-bold" %>
