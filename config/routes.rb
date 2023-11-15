@@ -33,11 +33,10 @@ root 'public/homes#index'
 #掲示板投稿コメント
     resources:post_board_comments,only: [:create,:destroy]
 
-#掲示板コミュニティ
-    resources:communities,only: [:index]
-
-#掲示板投稿
-    resources:post_boards,only: [:index,:create,:destroy]
+#掲示板コミュニティ(投稿)
+    resources:communities,only: [:index]do
+        resources:post_boards,only: [:index,:create,:destroy]
+    end
   
 #レビュー投稿(いいね機能・コメント機能付き)
     resources:reviews,only: [:create,:show,:index, :show,:update,:edit,:destroy]do
