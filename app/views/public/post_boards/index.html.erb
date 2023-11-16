@@ -1,21 +1,24 @@
-<h1><%= @community.name %>への新規投稿</h1>
+<div class="container mt-5">
+<h3><%= @community.name %>への新規投稿</h3>
 
 <%= form_with(model:@post_board,url: community_post_boards_path(@community), local: true) do |form| %>
   <%= form.hidden_field :community_id,value: @community.id %>
   <%= form.hidden_field :user_id, value: current_user.id %>
-  <%#= form.fields_for :post_board do |post_board_fields| %>
-    <%#= post_board_fields.text_area :body %>
-  <%# end %>
   <%= form.text_area :body %>
   <%= form.submit "投稿" %>
 <% end %>
 
-<h1><%= @community.name %>の投稿一覧</h1>
+<h3><%= @community.name %>の投稿一覧</h3>
 
 <% @post_boards.each do |post_board| %>
   <% if post_board.id != nil %>
-    <p><%= post_board.created_at.strftime("%Y年%m月%d日") %></p>
     <p><%= post_board.user.name %></p>
+    <p><%= post_board.created_at.strftime("%Y年%m月%d日%H時%M分") %></p>
     <p><%= post_board.body %></p>
+    <% if current_user.id == post_board.user_id %> <!-- ログインユーザーが投稿のユーザーと一致しているかチェック -->
+      <%= link_to "削除", community_post_board_path(post_board.community_id, post_board), method: :delete %> <!-- 削除リクエストを送るためのリンクを作成 -->
+    <% end %>
   <% end %>
 <% end %>
+
+</div>

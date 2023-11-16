@@ -19,6 +19,11 @@ class Public::PostBoardsController < ApplicationController
   end
   
   def destroy
+    @post_board = PostBoard.find(params[:id]) # 削除する投稿を取得
+    if @post_board.user_id == current_user.id # ログインユーザーと投稿のユーザーが一致しているかチェック
+      @post_board.destroy # 投稿を削除
+    end
+    redirect_to community_post_boards_path(params[:community_id]) # コミュニティの投稿一覧ページにリダイレクト
   end
   
   private
