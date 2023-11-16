@@ -1,0 +1,38 @@
+<h3>新規お知らせ作成</h3>
+<%= form_with(model: @notice, url: admin_notices_path, local: true) do |form| %>
+  
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create Notice" %>
+  </div>
+<% end %>
+
+<h3>お知らせ一覧</h3>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notices.each do |notice| %>
+      <tr>
+        <td><%= notice.title %></td>
+        <td><%= notice.body %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

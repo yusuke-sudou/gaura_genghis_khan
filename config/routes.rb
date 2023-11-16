@@ -51,6 +51,9 @@ root 'public/homes#index'
     resources:menus,only: [:index, :show]
   end
   
+#お知らせ機能
+    resources :notices,only: [:index]
+  
 ######admin##############
   namespace :admin do
 #ホーム
@@ -60,6 +63,9 @@ root 'public/homes#index'
         resources:post_boards,only: [:index,:destroy]
     end
   
+#お知らせ機能
+    resources :notices,only: [:index, :create, :edit, :update, :destroy]
+
 #メニュー
     resources :menus,only: [:index, :new, :create, :show, :edit, :update, :destroy]
   
@@ -75,6 +81,5 @@ root 'public/homes#index'
 #掲示板投稿へのコメント    
     resources :post_board_comments,only: [:index, :destroy]
   end
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
