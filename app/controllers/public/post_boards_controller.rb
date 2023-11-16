@@ -12,8 +12,10 @@ class Public::PostBoardsController < ApplicationController
     @post_board = @community.post_boards.build(post_board_params) # コミュニティに紐づく投稿を作成し、パラメータを設定
     @post_board.user_id = current_user.id 
     if @post_board.save
+      flash[:notice] = "登録に成功しました。"
       redirect_to community_post_boards_path(@community)
     else
+      flash.now[:alert] = "登録に失敗しました"
       render :index
     end
   end
@@ -23,6 +25,7 @@ class Public::PostBoardsController < ApplicationController
     if @post_board.user_id == current_user.id # ログインユーザーと投稿のユーザーが一致しているかチェック
       @post_board.destroy # 投稿を削除
     end
+    flash[:notice] = "削除に成功しました。"
     redirect_to community_post_boards_path(params[:community_id]) # コミュニティの投稿一覧ページにリダイレクト
   end
   
