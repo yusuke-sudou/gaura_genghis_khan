@@ -1,0 +1,31 @@
+<% if @notice.errors.any? %>
+  <%= @notice.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @notice.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="container">
+  <h3 class="row py-4">お知らせ編集</h3>
+
+  <%= form_with model: @notice, url: admin_notice_path(@notice), method: :patch do |f| %>
+  
+    <div class="row mt-2">
+      <h4 class="col-3">タイトル :</h4>
+      <div class="col-8"><%= f.text_field :title, size: 40, class: 'form-control' %></div>
+    </div>
+    
+    <div class="row mt-2">
+      <h4 class="col-3">内容 :</h4>
+      <div class="col-8"><%= f.text_area :body , size: "40x5", class: 'form-control'%></div>
+    </div>
+    
+    <div class="row">
+      <%= f.submit '更新', class:"btn btn-success mt-3" %>
+    </div>
+    
+  <% end %>
+
+</div>

@@ -33,7 +33,7 @@
         <li class="list-group-item"><%= post_board.body %></li>
         <li class="list-group-item">
         <% if current_user.id == post_board.user_id %> <!-- ログインユーザーが投稿のユーザーと一致しているかチェック -->
-          <%= link_to "削除", community_post_board_path(post_board.community_id, post_board), method: :delete %> <!-- 削除リクエストを送るためのリンクを作成 -->
+          <%= link_to "削除", community_post_board_path(post_board.community_id, post_board), method: :delete, class:"btn btn-danger" %> <!-- 削除リクエストを送るためのリンクを作成 -->
         <% end %>
         </li>
       </ul>

@@ -38,7 +38,7 @@
                 <%= link_to "コミュニティ", admin_communities_path, class: "btn btn-dark font-weight-bold" %>
                 <%= link_to "ジャンル", admin_genres_path, class: "btn btn-dark font-weight-bold" %>
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "掲示板コメント", admin_post_board_comments_path, class: "btn btn-dark font-weight-bold" %>
+                <%= link_to "お知らせ作成", admin_notices_path, class: "btn btn-dark font-weight-bold" %>
                 <%= link_to "レビューコメント", admin_review_comments_path, class: "btn btn-dark font-weight-bold" %>
               <% elsif user_signed_in? %>
                 <%= link_to "マイページ", user_path,class: "btn btn-dark font-weight-bold" %>
