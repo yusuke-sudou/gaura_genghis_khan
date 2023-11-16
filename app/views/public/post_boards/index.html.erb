@@ -1,2 +1,43 @@
-<h1>Public::PostBoards#index</h1>
-<p>Find me in app/views/public/post_boards/index.html.erb</p>
+<% if @post_board.errors.any? %>
+  <%= @post_board.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @post_board.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="container mt-5">
+  <h4><%= @community.name %>への投稿はこちら！</h4>
+  
+  <%= form_with(model:@post_board,url: community_post_boards_path(@community), local: true) do |form| %>
+    <%= form.hidden_field :community_id,value: @community.id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.text_area :body, size: "3x3", class: 'form-control' %>
+    <%= form.submit "投稿", class:"btn btn-success mt-2" %>
+  <% end %>
+
+  <h3 class="mt-5 mb-3 text-center"><%= @community.name %>の投稿一覧</h3>
+  
+  <% @post_boards.each do |post_board| %>
+    <% if post_board.id != nil %>
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <p class="col-2"><%= post_board.user.name %>より：</p>
+          <p class="col-5"><%= post_board.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+        </div>
+      </div>
+    </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= post_board.body %></li>
+        <li class="list-group-item">
+        <% if current_user.id == post_board.user_id %> <!-- ログインユーザーが投稿のユーザーと一致しているかチェック -->
+          <%= link_to "削除", community_post_board_path(post_board.community_id, post_board), method: :delete %> <!-- 削除リクエストを送るためのリンクを作成 -->
+        <% end %>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class='row mt-5'>
+      <h3>コミュニティ一覧</h3>
+      
+      <table class="table mt-3">
+        <tr>
+          <th class="col-4">コミュニティ名</th>
+          <th>説明</th>
+          <th></th>
+        </tr>
+      <% @communities.each do |community| %>
+        <tr>
+          <td class="col-4"><%= community.name %></td>
+          <td><%= community.explanation %></td>
+          <td><%= link_to "掲示板へ", community_post_boards_path(community) %></td>
+        </tr>
+      <% end %>
+      </table>
+  </div>
+</div>
