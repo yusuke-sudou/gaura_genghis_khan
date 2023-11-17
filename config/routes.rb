@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'notices/index'
+  end
 # 顧客用
 # URL /users/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -32,6 +35,9 @@ root 'public/homes#index'
     
 #掲示板投稿コメント
     resources:post_board_comments,only: [:create,:destroy]
+    
+#お知らせ機能
+    resources :notices,only: [:index]
 
 #掲示板コミュニティ(投稿)
     resources:communities,only: [:index]do
@@ -51,8 +57,6 @@ root 'public/homes#index'
     resources:menus,only: [:index, :show]
   end
   
-#お知らせ機能
-    resources :notices,only: [:index]
   
 ######admin##############
   namespace :admin do
