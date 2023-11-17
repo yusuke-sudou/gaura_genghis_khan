@@ -9,7 +9,7 @@ class Public::HomesController < ApplicationController
   def about
   end
   
-  def index
+  def check
   end
   
 end

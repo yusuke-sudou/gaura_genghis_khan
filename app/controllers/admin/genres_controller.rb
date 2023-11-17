@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+  before_action :is_matching_login_admin, only: [:edit, :update]
   def index
     @genre = Genre.new
     @genres = Genre.all

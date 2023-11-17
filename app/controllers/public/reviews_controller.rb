@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   # def index
   #   @review = Review.new
   #   @reviews = Review.all

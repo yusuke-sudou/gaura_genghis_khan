@@ -1,4 +1,5 @@
 class Admin::NoticesController < ApplicationController
+  before_action :is_matching_login_admin, only: [:edit, :update]
   def index
     @notice = Notice.new
     @notices = Notice.all

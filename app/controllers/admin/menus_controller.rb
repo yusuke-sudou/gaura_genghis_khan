@@ -1,4 +1,5 @@
 class Admin::MenusController < ApplicationController
+  before_action :is_matching_login_admin, only: [:edit, :update]
   def index
     @menus_by_genre = Menu.all.group_by(&:genre_id)
   end

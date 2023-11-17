@@ -1,4 +1,5 @@
 class Admin::CommunitiesController < ApplicationController
+  before_action :is_matching_login_admin, only: [:edit, :update]
   def index
     @community = Community.new
     @communities = Community.all
