@@ -1,5 +1,8 @@
 @use '~bootstrap/scss/bootstrap';
 
+
+@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap');
+
 .flash-message {
   border-radius: 5px;
   padding: 16px 24px;
@@ -21,4 +24,8 @@
 .swiper-slide img {
   //height: 30vh;
   width: 100%;
+}
+
+.log {
+  font-family: 'Darumadrop One';
 }

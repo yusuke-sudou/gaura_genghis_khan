@@ -50,13 +50,32 @@
   </script>
 </div>
 
+<div class="square">
+  <h3 class="text-center">新着お知らせ</h3>
+</div>
+  
+<div class="container mt-3">
+  <div class="row">
+    <% @new_notices.each do |notice| %>
+    <div class="col-12 card mb-3">
+      <div class="card-body">
+      <h6 class="list-group-item"><%= notice.created_at.strftime('%Y/%m/%d %H時%M分') %></h6>
+      <h5 class="list-group-item"><%= notice.title %></h5>
+      <h6 class="list-group-item"><%= notice.body.truncate(100) %></h6>
+      <h6 class="list-group-item"><%= link_to"お知らせ一覧へ",notices_path %></h6>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="aboutback">
 
 <div class="square">
   <h3 class="text-center">新着レビュー</h3>
 </div>
   
-<div class="container mt-3">
+<div class="container">
   <div class="row">
     <% @new_reviews.each do |review| %>
     <div class="col-4 card mt-3 mb-3">
