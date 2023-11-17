@@ -29,3 +29,35 @@
 .log {
   font-family: 'Darumadrop One';
 }
+
+// トップに戻るボタンの親要素
+#back {
+  position: fixed;
+  // 画面上での位置を固定
+  right: 20px;
+  bottom: 20px;
+}
+// トップに戻るボタンのクラス
+.scroll-top-btn {
+  display: none;
+  // 初期状態では非表示
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 99;
+  // 他の要素よりも前面に表示されるようにする
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #f5f5f5;
+  color: black;
+  cursor: pointer;
+  // マウスカーソルをポインターに変更
+  padding: 15px;
+  border-radius: 4px;
+}
+// マウスがボタン上に乗った時のスタイルを指定
+.scroll-top-btn:hover {
+  background-color: #555;
+  color: white;
+}
