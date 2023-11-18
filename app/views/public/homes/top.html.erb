@@ -59,8 +59,8 @@
     <% @new_notices.each do |notice| %>
     <div class="col-12 card mb-3">
       <div class="card-body">
-      <h6 class="list-group-item"><%= notice.created_at.strftime('%Y/%m/%d %H時%M分') %></h6>
-      <h5 class="list-group-item"><%= notice.title %></h5>
+      <h6 class="list-group-item bg-warning"><%= notice.created_at.strftime('%Y/%m/%d %H時%M分') %></h6>
+      <h5 class="list-group-item font-weight-bold"><%= notice.title %></h5>
       <h6 class="list-group-item"><%= notice.body.truncate(100) %></h6>
       <h6 class="list-group-item"><%= link_to"お知らせ一覧へ",notices_path %></h6>
       </div>
@@ -81,8 +81,8 @@
     <div class="col-4 card mt-3 mb-3">
       <%= link_to image_tag(review.image, class: "card-img-top", size: "300x300"), review_path(review) %>
       <div class="card-body">
-      <h6 class="list-group-item"><%= review.created_at.strftime('%Y/%m/%d') %></h6>
-      <h5 class="list-group-item"><%= review.title %></h5>
+      <h6 class="list-group-item bg-warning"><%= review.created_at.strftime('%Y/%m/%d') %></h6>
+      <h5 class="list-group-item font-weight-bold"><%= review.title %></h5>
       <h6 class="list-group-item"><%= review.body.truncate(50) %></h6>
       <h6 class="list-group-item"><%= @users.find(review.user_id).name %></h6>
       </div>

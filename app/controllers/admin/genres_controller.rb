@@ -1,5 +1,5 @@
 class Admin::GenresController < ApplicationController
-  before_action :is_matching_login_admin, only: [:edit, :update]
+  before_action :authenticate_admin!, only: [:edit, :update]
   def index
     @genre = Genre.new
     @genres = Genre.all
@@ -8,7 +8,8 @@ class Admin::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to admin_genres_path, flash[:notice] = "新しいジャンル名「#{@genre.name}」を追加しました"
+      flash[:notice] = "新しいジャンル名を追加しました"
+      redirect_to admin_genres_path
     else
       @genres = Genre.all
       flash.now[:alert] = "追加に失敗しました"
@@ -23,7 +24,8 @@ class Admin::GenresController < ApplicationController
   def update
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
-      redirect_to admin_genres_path, flash[:notice] = "ジャンル名を#{@genre.name}へ変更しました"
+      flash[:notice] = "ジャンル名を変更しました"
+      redirect_to admin_genres_path
     else
       flash.now[:alert] = "更新に失敗しました"
       render :edit
