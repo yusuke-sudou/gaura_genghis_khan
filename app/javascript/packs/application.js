@@ -32,3 +32,7 @@ $(function() {
     return false;
   });
 });
+window.navToggle = function(){
+  $('.nav_toggle, .nav').toggleClass('show');
+  
+};

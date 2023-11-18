@@ -30,29 +30,39 @@
               </p>
             </div>
           <% end %>
-          <div class="ml-auto col-4"> 
-            <div class="row justify-content-between align-items-center">
+          <div class="ml-auto col-1"> 
+            <div class="row">
+              <span class="nav_toggle" onclick="navToggle();">
+                <i></i>
+                <i></i>
+                <i></i>
+              </span>
+              <nav class="nav">
+                <ul class="nav_menu_ul">
+                  <h2>MENU</h2>
               <% if request.fullpath.include?("/admin") && admin_signed_in? %>
-                <%= link_to "メニュー", admin_menus_path, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "顧客", admin_users_path, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "コミュニティ", admin_communities_path, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "ジャンル", admin_genres_path, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "お知らせ作成", admin_notices_path, class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "レビューコメント", admin_review_comments_path, class: "btn btn-dark font-weight-bold" %>
+                <li class="nav_menu_li"><%= link_to "メニュー", admin_menus_path %></li>
+                <li class="nav_menu_li"><%= link_to "顧客", admin_users_path %></li>
+                <li class="nav_menu_li"><%= link_to "コミュニティ", admin_communities_path %></li>
+                <li class="nav_menu_li"><%= link_to "ジャンル", admin_genres_path %></li>
+                <li class="nav_menu_li"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+                <li class="nav_menu_li"><%= link_to "お知らせ作成", admin_notices_path %></li>
+                <li class="nav_menu_li"><%= link_to "レビューコメント", admin_review_comments_path %></li>
               <% elsif user_signed_in? %>
-                <%= link_to "マイページ", user_path,class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "メニュー", menus_path,class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "掲示板", communities_path,class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "レビュー", reviews_path,class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "btn btn-dark font-weight-bold" %>
+                <li class="nav_menu_li"><%= link_to "マイページ", user_path %></li>
+                <li class="nav_menu_li"><%= link_to "メニュー", menus_path %></li>
+                <li class="nav_menu_li"><%= link_to "掲示板", communities_path %></li>
+                <li class="nav_menu_li"><%= link_to "レビュー", reviews_path %></li>
+                <li class="nav_menu_li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               <% else %>
-                <%= link_to "About", about_path,class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "メニュー", menus_path,class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "新規登録", new_user_registration_path,class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "ログイン", new_user_session_path,class: "btn btn-dark font-weight-bold" %>
-                <%= link_to "管理者ログイン", new_admin_session_path,class: "btn btn-dark font-weight-bold" %>
+                <li class="nav_menu_li"><%= link_to "About", about_path %></li>
+                <li class="nav_menu_li"><%= link_to "メニュー", menus_path %></li>
+                <li class="nav_menu_li"><%= link_to "新規登録", new_user_registration_path %></li>
+                <li class="nav_menu_li"><%= link_to "ログイン", new_user_session_path %></li>
+                <li class="nav_menu_li"><%= link_to "管理者ログイン", new_admin_session_path %></li>
               <% end %>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
@@ -74,3 +84,25 @@
     
   </body>
 </html>
+
+<%# if request.fullpath.include?("/admin") && admin_signed_in? %>
+  <%#= link_to "メニュー", admin_menus_path, class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "顧客", admin_users_path, class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "コミュニティ", admin_communities_path, class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "ジャンル", admin_genres_path, class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "お知らせ作成", admin_notices_path, class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "レビューコメント", admin_review_comments_path, class: "btn btn-dark font-weight-bold" %>
+<%# elsif user_signed_in? %>
+  <%#= link_to "マイページ", user_path,class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "メニュー", menus_path,class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "掲示板", communities_path,class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "レビュー", reviews_path,class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "btn btn-dark font-weight-bold" %>
+<%# else %>
+  <%#= link_to "About", about_path,class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "メニュー", menus_path,class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "新規登録", new_user_registration_path,class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "ログイン", new_user_session_path,class: "btn btn-dark font-weight-bold" %>
+  <%#= link_to "管理者ログイン", new_admin_session_path,class: "btn btn-dark font-weight-bold" %>
+<%# end %>
