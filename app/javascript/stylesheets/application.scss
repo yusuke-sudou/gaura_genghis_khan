@@ -154,3 +154,22 @@
 }
 
 //////レスポンシブ対応
+
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width: 1024px) {
+  .aboutimage {
+    width: 100%;
+  }
+}
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width: 768px) {
+  .aboutimage {
+    width: 100%;
+  }
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width: 425px) {
+  .aboutimage {
+    max-width: 100%;
+  }
+}
