@@ -41,6 +41,7 @@
   // 画面上での位置を固定
   right: 20px;
   bottom: 20px;
+  z-index: 1;
 }
 // トップに戻るボタンのクラス
 .scroll-top-btn {
@@ -51,11 +52,11 @@
   right: 50px;
   z-index: 99;
   // 他の要素よりも前面に表示されるようにする
-  font-size: 18px;
+  font-size: 20px;
   border: none;
   outline: none;
   background-color: #f5f5f5;
-  color: black;
+  color: blue;
   cursor: pointer;
   // マウスカーソルをポインターに変更
   padding: 15px;
