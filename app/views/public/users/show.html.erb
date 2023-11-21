@@ -1,18 +1,18 @@
+<div class="aboutback">
 <div class="container">
-  <div class="row">
-    
-    <div class="col-md-5 mt-5">
-      <h3 class="mt-5 font-weight-bold">マイページ</h3>
-      <h5 class="mt-3 font-weight-bold">登録情報</h5>
+  <div class="row col-12">
+    <div class="mt-5">
+      <h1 class="logo text-white" style="font-family: Darumadrop One;">マイページ</h1>
+      <h5 class="mt-3 text-white font-weight-bold">登録情報</h5>
       
       <table class="border mt-2">
         <tr class="mt-3">
           <th class="border bg-light">名前</th>
-          <td class="border"><%= @user.name %></td>
+          <td class="border bg-light"><%= @user.name %></td>
         </tr>
         <tr class="mt-3">
           <th class="border bg-light">メールアドレス</th>
-          <td class="border"><%= @user.email %></td>
+          <td class="border bg-light"><%= @user.email %></td>
         </tr>
       </table>
       
@@ -26,10 +26,11 @@
       </div>
       <% end %>
       </div>
+      </div>
     
-    <div class="col-md-6 offset-md-1 mt-5">
+    <div class="row col-12">
     <% @user.reviews.each do |review| %>
-      <div class="card mt-2">
+      <div class="card col-md-5 m-3", style="background-color: #cee4ae;">
           <%= image_tag review.get_image %>
           <div class="card-body">
             <div class="list-group list-group-flush">
@@ -43,6 +44,5 @@
         </div>  
     <% end %>
     </div>
-    
-  </div>
+</div>
 </div>

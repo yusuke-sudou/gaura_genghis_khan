@@ -6,10 +6,13 @@
     <% end %>
   </ul>
 <% end %>
-
-<div class="container mt-5">
-  <h4><%= @community.name %>への投稿はこちら！</h4>
-  
+<div class="aboutback">
+  <div>
+    </br>
+  </div>
+<div class="container">
+  <h2 class="row d-flex align-items-center justify-content-center text-white"><%= @community.name %></h2>
+  <h4 class="text-white">投稿はこちら！</h4>
   <%= form_with(model:@post_board,url: community_post_boards_path(@community), local: true) do |form| %>
     <%= form.hidden_field :community_id,value: @community.id %>
     <%= form.hidden_field :user_id, value: current_user.id %>
@@ -17,11 +20,11 @@
     <%= form.submit "投稿", class:"btn btn-success mt-2" %>
   <% end %>
 
-  <h3 class="mt-5 mb-3 text-center"><%= @community.name %>の投稿一覧</h3>
+  <h1 class="logo mt-5 mb-3 text-center text-white" style="font-family: Darumadrop One;">とうこういちらん</h1>
   
   <% @post_boards.each do |post_board| %>
     <% if post_board.id != nil %>
-    <div class="card">
+    <div class="card" style="background-color: #dbd0e6;">
       <div class="card-header">
         <div class="row">
           <p class="col-md-2"><%= post_board.user.name %>より：</p>
@@ -29,15 +32,19 @@
         </div>
       </div>
     </div>
-      <ul class="list-group list-group-flush">
+      <div class="list-group list-group-flush" style="background-color: #f7fcfe;">
         <li class="list-group-item"><%= post_board.body %></li>
         <li class="list-group-item">
         <% if current_user.id == post_board.user_id %> <!-- ログインユーザーが投稿のユーザーと一致しているかチェック -->
           <%= link_to "削除", community_post_board_path(post_board.community_id, post_board), method: :delete, class:"btn btn-danger" %> <!-- 削除リクエストを送るためのリンクを作成 -->
         <% end %>
         </li>
-      </ul>
+      </div>
     <% end %>
   <% end %>
 
+</div>
+  <div>
+    </br>
+  </div>
 </div>
