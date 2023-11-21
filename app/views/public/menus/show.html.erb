@@ -3,32 +3,47 @@
   
   <h3 class="row py-4">メニュー詳細</h3>
     
-    <div class="row py-3">
-      <div class="col-md-12">
-        <% if @menu.image.attached? %>
-          <%= image_tag @menu.image, size: "500x500" %>
-        <% else %>
-          <%= image_tag 'no_image', size: "500x500" %>
-        <% end %>
-      </div>
-    </div>
+    <!--<div class="row py-3">-->
+    <!--  <div class="col-md-12">-->
+    <!--    <%# if @menu.image.attached? %>-->
+    <!--      <%#= image_tag @menu.image, size: "500x500" %>-->
+    <!--    <%# else %>-->
+    <!--      <%#= image_tag 'no_image', size: "500x500" %>-->
+    <!--    <%# end %>-->
+    <!--  </div>-->
+    <!--</div>-->
     
-    <div class="row py-3">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-2">メニュー名:</div>
-          <div class="col-md-10"><%= @menu.name %></div>
-        </div>
+    <!--<div class="row py-3">-->
+    <!--  <div class="col-md-12">-->
+    <!--    <div class="row">-->
+    <!--      <div class="col-md-2">メニュー名:</div>-->
+    <!--      <div class="col-md-10"><%#= @menu.name %></div>-->
+    <!--    </div>-->
         
-        <div class="row mt-2">
-          <div class="col-md-2">税抜価格:</div>
-          <div class="col-md-10"><%= @menu.price %>円</div>
-        </div>
+    <!--    <div class="row mt-2">-->
+    <!--      <div class="col-md-2">税抜価格:</div>-->
+    <!--      <div class="col-md-10"><%#= @menu.price %>円</div>-->
+    <!--    </div>-->
         
-        <div class="row mb-5 mt-2">
-          <div class="col-md-12"><%= @menu.explanation %></div>
-        </div>
+    <!--    <div class="row mb-5 mt-2">-->
+    <!--      <div class="col-md-12"><%#= @menu.explanation %></div>-->
+    <!--    </div>-->
         
-        </div>
+    <!--    </div>-->
+    <!--</div>-->
+    
+    <div class="card col-md-8 mt-2">
+      <% if @menu.image.attached? %>
+        <%= image_tag @menu.image %>
+      <% else %>
+        <%= image_tag 'no_image' %>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <div class="list-group list-group-flush">
+        <h5 class="list-group-item"><%= @menu.name %></h5>
+        <p class="list-group-item"><%= @menu.price %>円（税抜き）</p>
+        <p class="list-group-item"><%= @menu.explanation %></p>
+      </div>
     </div>
 </div>

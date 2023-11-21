@@ -1,4 +1,5 @@
 class Admin::CommunitiesController < ApplicationController
+  before_action :authenticate_admin!, only: [:edit, :update]
   def index
     @community = Community.new
     @communities = Community.all

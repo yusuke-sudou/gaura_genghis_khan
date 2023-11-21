@@ -12,7 +12,7 @@
         <tr>
           <td class="col-4"><%= community.name %></td>
           <td><%= community.explanation %></td>
-          <td><%= link_to "掲示板へ", community_post_boards_path(community) %></td>
+          <td><%= link_to "掲示板へ", community_post_boards_path(community),class:"btn btn-primary" %></td>
         </tr>
       <% end %>
       </table>

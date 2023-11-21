@@ -1,8 +1,9 @@
 @use '~bootstrap/scss/bootstrap';
 
-
+///////ロゴのフォントのURL//////////
 @import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap');
 
+////////////////////フラッシュメッセージ/////////////////
 .flash-message {
   border-radius: 5px;
   padding: 16px 24px;
@@ -21,11 +22,155 @@
   border: solid 1px #930403;
 }
 
+//////////////////スワイパー///////////////////
 .swiper-slide img {
   //height: 30vh;
   width: 100%;
 }
 
+//////////////////ロゴ////////////////////////
 .log {
   font-family: 'Darumadrop One';
+}
+
+///////////////////////トップに戻るボタン/////////////////////////////
+
+// トップに戻るボタンの親要素
+#back {
+  position: fixed;
+  // 画面上での位置を固定
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+}
+// トップに戻るボタンのクラス
+.scroll-top-btn {
+  display: none;
+  // 初期状態では非表示
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 99;
+  // 他の要素よりも前面に表示されるようにする
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: #f5f5f5;
+  color: blue;
+  cursor: pointer;
+  // マウスカーソルをポインターに変更
+  padding: 15px;
+  border-radius: 4px;
+}
+// マウスがボタン上に乗った時のスタイルを指定
+.scroll-top-btn:hover {
+  background-color: #555;
+  color: white;
+}
+
+///////////ハンバーガーメニュー/////////////
+////ボタンのCSS（クリック前）
+.nav_toggle {
+  display: block;
+  position: relative;
+  width: 1.75rem;
+  height: 1.5rem;
+}
+.nav_toggle i {
+  display: #F8F8FF;
+  width: 100%;
+  height: 2px;
+  background-color: #F8F8FF;
+  position: absolute;
+  transition: transform .5s, opacity .5s;
+}
+.nav_toggle i:nth-child(1) {
+  top: 0;
+}
+.nav_toggle i:nth-child(2) {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.nav_toggle i:nth-child(3) {
+  bottom: 0;
+}
+
+/////ボタンのCSS（クリック後　.showが追加されている）
+.nav_toggle.show i:nth-child(1) {
+  transform: translateY(10px) rotate(-45deg);
+}
+.nav_toggle.show i:nth-child(2) {
+  opacity: 0;
+}
+.nav_toggle.show i:nth-child(3) {
+  transform: translateY(-12px) rotate(45deg);
+}
+.nav_toggle.show {
+  z-index: 20;
+}
+
+/////メニューリストのCSS（クリック前）
+.nav {
+  position: fixed;
+  top: 3rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+}
+
+/////メニューリストのCSS（クリック後　.showが追加されている）
+.nav.show {
+  opacity: 1;
+  visibility: visible;
+  background: #000;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  z-index: 9;
+}
+
+.nav_menu_li {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.nav_menu_li a{
+  color: white;
+}
+
+.nav_menu_ul {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  width: 100%;
+  list-style-type: none;
+}
+
+//////レスポンシブ対応
+
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width: 1024px) {
+  .aboutimage {
+    width: 100%;
+  }
+}
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width: 768px) {
+  .aboutimage {
+    width: 100%;
+  }
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width: 425px) {
+  .aboutimage {
+    max-width: 100%;
+  }
 }

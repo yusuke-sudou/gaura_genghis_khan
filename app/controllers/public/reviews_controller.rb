@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   # def index
   #   @review = Review.new
   #   @reviews = Review.all
@@ -60,6 +61,13 @@ class Public::ReviewsController < ApplicationController
   
   def review_params
     params.require(:review).permit(:title, :body, :image)  
+  end
+  
+  def is_matching_login_user
+    @review = Review.find(params[:id])
+    unless @review.user == current_user
+      redirect_to reviews_path
+    end
   end
   
 end

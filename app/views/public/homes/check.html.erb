@@ -1,3 +1,4 @@
+
 <div class="niku">
   <div></div>
 <%#= image_tag "jinjin.jpg", style: "width: 100%;" %>
@@ -11,15 +12,18 @@
     
     <div class="text-center">
       <div>
-        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary col-3 mt-2", method: :post %>
+        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, class: "btn btn-secondary col-md-3 mt-2", method: :post %>
       </div>
       <div>
-        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success col-3 mt-2" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success col-md-3 mt-2" %>
       </div>
       <div>
-        <%= link_to "ログイン", new_user_session_path, class: "btn btn-info col-3 mt-2" %>
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-info col-md-3 mt-2" %>
       </div>
-      </div>
+      <!--<div>-->
+      <!--  <%#= link_to "管理者ログイン", new_admin_session_path, class: "btn btn-danger col-3 mt-2" %>-->
+      <!--</div>-->
+    </div>
     </div>
   </div>
 </div>

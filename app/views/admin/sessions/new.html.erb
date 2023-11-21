@@ -3,13 +3,13 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field row mt-3">
-    <%= f.label :email,"メールアドレス",class:"col-3" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"col-4" %>
+    <%= f.label :email,"メールアドレス",class:"col-md-3" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"col-md-4" %>
   </div>
 
   <div class="field row mt-3">
-    <%= f.label :password,"パスワード",class:"col-3" %><br />
-    <%= f.password_field :password, autocomplete: "current-password",class:"col-4" %>
+    <%= f.label :password,"パスワード",class:"col-md-3" %><br />
+    <%= f.password_field :password, autocomplete: "current-password",class:"col-md-4" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
