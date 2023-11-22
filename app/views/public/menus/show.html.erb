@@ -1,7 +1,7 @@
-
+<div class="aboutback">
 <div class="container">
   
-  <h3 class="row py-4">メニュー詳細</h3>
+  <h3 class="row py-4 text-white">メニュー詳細</h3>
     
     <!--<div class="row py-3">-->
     <!--  <div class="col-md-12">-->
@@ -32,18 +32,19 @@
     <!--    </div>-->
     <!--</div>-->
     
-    <div class="card col-md-8 mt-2">
+    <div class="card col-md-8 mt-2" style="background-color: #eebbcb;">
       <% if @menu.image.attached? %>
         <%= image_tag @menu.image %>
       <% else %>
         <%= image_tag 'no_image' %>
       <% end %>
     </div>
-    <div class="card-body">
-      <div class="list-group list-group-flush">
+    <div class="card-body col-md-8" style="background-color: #eebbcb;">
+      <!--<div class="list-group list-group-flush">-->
         <h5 class="list-group-item"><%= @menu.name %></h5>
         <p class="list-group-item"><%= @menu.price %>円（税抜き）</p>
         <p class="list-group-item"><%= @menu.explanation %></p>
-      </div>
+      <!--</div>-->
     </div>
+</div>
 </div>

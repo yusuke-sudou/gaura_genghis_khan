@@ -18,9 +18,13 @@
 }
 
 .aboutback {
+    width: 100%;
+    height: 100%;
     background-color: #333631;
 }
 
 .communityback {
-    background-color: #dbd0e6;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #333631;
 }
