@@ -1,0 +1,32 @@
+<% if @community.errors.any? %>
+  <%= @community.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @community.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="container">
+  <h3 class="row py-4">コミュニティ編集</h3>
+
+  <%= form_with model: @community, url: admin_community_path(@community) do |f| %>
+  
+    <div class="row mt-2">
+      <h4 class="col-md-3">コミュニティ名 :</h4>
+      <div class="col-md-8"><%= f.text_field :name, size: 40, class: 'form-control' %></div>
+    </div>
+    
+    <div class="row mt-2">
+      <h4 class="col-md-3">説明 :</h4>
+      <div class="col-md-8"><%= f.text_area :explanation , size: "40x5", class: 'form-control'%></div>
+    </div>
+    
+    <div class="row">
+      <%= f.submit '更新', class:"btn btn-success mt-3" %>
+    </div>
+    
+  <% end %>
+
+  </div>
+</div>

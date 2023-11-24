@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'notices/index'
+  end
 # 顧客用
 # URL /users/sign_in ...
 devise_for :users,skip: [:passwords], controllers: {
@@ -16,7 +19,7 @@ devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
 end
 
-root 'public/homes#index'
+root 'public/homes#check'
 
 
 ###########public###########
@@ -31,10 +34,15 @@ root 'public/homes#index'
     get 'users/favorites' => 'users#favorites', as: 'user_favorites'
     
 #掲示板投稿コメント
-    resources:post_board_comments,only: [:create,:destroy]
- 
-#掲示板投稿
-    resources:post_boards,only: [:index,:create,:destroy]
+    # resources:post_board_comments,only: [:create,:destroy]
+    
+#お知らせ機能
+    resources :notices,only: [:index]
+
+#掲示板コミュニティ(投稿)
+    resources:communities,only: [:index]do
+        resources:post_boards,only: [:index,:create,:destroy]
+    end
   
 #レビュー投稿(いいね機能・コメント機能付き)
     resources:reviews,only: [:create,:show,:index, :show,:update,:edit,:destroy]do
@@ -49,13 +57,19 @@ root 'public/homes#index'
     resources:menus,only: [:index, :show]
   end
   
+  
 ######admin##############
   namespace :admin do
 #ホーム
     get 'homes/top'
 #コミュニティ
-    resources :communitys,only: [:index, :create, :show, :edit, :update, :destroy]
+    resources :communities,only: [:index, :create, :show, :edit, :update, :destroy]do
+        resources:post_boards,only: [:index,:destroy]
+    end
   
+#お知らせ機能
+    resources :notices,only: [:index, :create, :edit, :update, :destroy]
+
 #メニュー
     resources :menus,only: [:index, :new, :create, :show, :edit, :update, :destroy]
   
@@ -69,8 +83,7 @@ root 'public/homes#index'
     resources :review_comments,only: [:index, :destroy]
   
 #掲示板投稿へのコメント    
-    resources :post_board_comments,only: [:index, :destroy]
+    # resources :post_board_comments,only: [:index, :destroy]
   end
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

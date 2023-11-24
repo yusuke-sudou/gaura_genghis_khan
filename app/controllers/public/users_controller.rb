@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   before_action :ensure_guest_user, only: [:edit]
   def show
     @user = current_user
@@ -37,6 +38,13 @@ class Public::UsersController < ApplicationController
     if @user.email == "guest@example.com"
       redirect_to user_path(current_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
     end
-  end  
+  end
+  
+  def is_matching_login_user
+    @user = User.find(params[:id])
+    unless @user.id == current_user.id
+      redirect_to user_path(current_user.id)
+    end
+  end
   
 end

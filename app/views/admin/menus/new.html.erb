@@ -25,7 +25,7 @@
       <%= f.label :name,"名前" %>
     </div>
     <div class="col-md-5">
-      <%= f.text_field :name %>
+      <%= f.text_field :name, size: 50 , class: 'form-control'%>
     </div>
   </div>
 
@@ -34,7 +34,7 @@
       <%= f.label :explanation,"説明" %>
     </div>
     <div class="col-md-5">
-      <%= f.text_area :explanation, style:"height:100px", rows:"5" %>
+      <%= f.text_area :explanation, style:"height:100px", rows:"5", size: "50x10", class: 'form-control' %>
     </div>
   </div>
   

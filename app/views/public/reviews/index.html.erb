@@ -1,10 +1,3 @@
-<div class="m-3 text-right">
-  <%= search_form_for @q, url: reviews_path, method: :get do |f| %>
-    <%= f.search_field :title_or_body_cont, placeholder: 'キーワード検索' %>
-    <%= f.submit '検索' %>
-  <% end %>
-</div>
-
 <% if @review.errors.any? %>
   <%= @review.errors.count %>件のエラーが発生しました
   <ul>
@@ -14,22 +7,30 @@
   </ul>
 <% end %>
 
+<div class="communityback">
+<div class="text-right">
+  <%= search_form_for @q, url: reviews_path, method: :get do |f| %>
+    <%= f.search_field :title_or_body_cont, placeholder: 'キーワード検索' %>
+    <%= f.submit '検索' %>
+  <% end %>
+</div>
+
 <div class="container">
-  <div class='row'>
-    <div class="col-md-3 mt-5">
+  
+    <div class="mt-5">
     <%= render 'public/reviews/new', review: @review %>
-    </div>
     
-    <div class="col-md-8 offset-md-1 mt-5">
-    <h3>レビュー投稿一覧</h3>
+    <div class="mt-5">
+    <h1 class="logo text-white" style="font-family: Darumadrop One;">レビューいちらん</h1>
     
+    <div class='row'>
     <% @reviews.each do |review| %>
-    <div class="card mt-2">
+    <div class="card col-md-5 m-3", style="background-color: #cee4ae;">
       <%= image_tag review.get_image %>
       <div class="card-body">
         <div class="list-group list-group-flush">
           <h5 class="list-group-item">タイトル：<%= review.title %></h5>
-          <p class="list-group-item"><%= review.body %></p>
+          <p class="list-group-item"><%= review.body.truncate(100) %></p>
           <h6 class="list-group-item">ユーザーネーム：　<%= review.user.name %></h6>
           <h6 class="list-group-item"><%= link_to "#{review.review_comments.count} コメント", review_path(review.id) %></h6>
           <h6 class="list-group-item mt-2"><%= link_to "詳細ページはこちら",review_path(review.id) %></h6>
@@ -38,5 +39,7 @@
     </div>  
     <% end %>
     </div>
+    </div>
   </div>
+</div>
 </div>

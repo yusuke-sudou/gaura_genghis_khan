@@ -1,0 +1,37 @@
+<div class="communityback">
+<div class="container">
+  <div></br></div>
+<h1 class="logo mt-3 text-white" style="font-family: Darumadrop One;">おしらせいちらん</h1>
+<div class="row mt-3">
+  <% @notices.each do |notice| %>
+    <div class="col-12 card m-3" style="background-color: #ebe1a9;">
+      <div class="card-body">
+      <h6 class="list-group-item"><%= notice.created_at.strftime('%Y/%m/%d %H時%M分') %></h6>
+      <h5 class="list-group-item font-weight-bold"><%= notice.title %></h5>
+      <h6 class="list-group-item"><%= notice.body %></h6>
+      </div>
+    </div>
+    <% end %>
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th class="col-2">日時</th>-->
+<!--      <th class="col-2">タイトル</th>-->
+<!--      <th class="col-6">内容</th>-->
+<!--    </tr>-->
+<!--  </thead>-->
+<!--  </div>-->
+
+<!--  <tbody>-->
+<!--    <%# @notices.each do |notice| %>-->
+<!--      <tr>-->
+<!--        <td class="col-2"><%#= notice.created_at.strftime("%Y年%m月%d日 %H時%M分") %></td>-->
+<!--        <td class="col-2"><%#= notice.title %></td>-->
+<!--        <td class="col-6"><%#= notice.body %></td>-->
+<!--      </tr>-->
+<!--    <%# end %>-->
+<!--  </tbody>-->
+<!--</table>-->
+</div>
+<div></br></div>
+</div>

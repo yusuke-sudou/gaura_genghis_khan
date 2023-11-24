@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
+  # before_action :authenticate_user!, except: [:top,:about,:check]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+  # protect_from_forgery with: :exception
+  # before_action :reset_guest_data, if: :devise_controller?
   
   def after_sign_up_path_for(resource)
     top_path
@@ -34,6 +36,13 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
+  
+  def reset_guest_data
+    guest_user = User.find_by(email: User::GUEST_USER_EMAIL)
+    guest_user.reviews.destroy_all if guest_user.reviews.any?
+    guest_user.review_comments.destroy_all if guest_user.review_comments.any?
+    guest_user.post_boards.destroy_all if guest_user.post_boards.any?
   end
   
 end
