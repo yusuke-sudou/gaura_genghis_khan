@@ -1,20 +1,40 @@
+<div class="communityback">
+  <div>
+    </br>
+  </div>
 <div class="container">
-  <div class='row mt-5'>
-      <h3>コミュニティ一覧</h3>
+  <div class='row'>
+      <h1 class="logo text-white" style="font-family: Darumadrop One;">コミュニティいちらん</h1>
       
       <table class="table mt-3">
         <tr>
-          <th class="col-4">コミュニティ名</th>
-          <th>説明</th>
+          <th class="col-4 text-white">コミュニティ名</th>
+          <th class="text-white">説明</th>
           <th></th>
         </tr>
       <% @communities.each do |community| %>
         <tr>
-          <td class="col-4"><%= community.name %></td>
-          <td><%= community.explanation %></td>
+          <td class="col-4 text-white"><%= community.name %></td>
+          <td class="text-white"><%= community.explanation %></td>
           <td><%= link_to "掲示板へ", community_post_boards_path(community),class:"btn btn-primary" %></td>
         </tr>
       <% end %>
       </table>
   </div>
+</div>
+<!--<div>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--</div>-->
 </div>

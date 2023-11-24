@@ -21,17 +21,9 @@ module GauraGenghisKhan
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     
-    # after_initialize do
-    #   ActiveSupport::Reloader.to_prepare do
-    #     guest_user = User.find_by(email: User::GUEST_USER_EMAIL)
-        
-    #     guest_user.reviews.each { |review| review.destroy } if guest_user.reviews.any?
-    #     guest_user.review_comments.each { |comment| comment.destroy } if guest_user.review_comments.any?
-    #     guest_user.post_boards.each { |board| board.destroy } if guest_user.post_boards.any?
-    #   end
-    # end
+
     config.after_initialize do
-      guest_user = User.find_by(email: User::GUEST_USER_EMAIL)
+      guest_user = User.find_or_create_by(email: User::GUEST_USER_EMAIL)
       
       guest_user.reviews.each { |review| review.destroy } if guest_user.reviews.any?
       guest_user.review_comments.each { |comment| comment.destroy } if guest_user.review_comments.any?

@@ -34,7 +34,7 @@ root 'public/homes#check'
     get 'users/favorites' => 'users#favorites', as: 'user_favorites'
     
 #掲示板投稿コメント
-    resources:post_board_comments,only: [:create,:destroy]
+    # resources:post_board_comments,only: [:create,:destroy]
     
 #お知らせ機能
     resources :notices,only: [:index]
@@ -83,7 +83,7 @@ root 'public/homes#check'
     resources :review_comments,only: [:index, :destroy]
   
 #掲示板投稿へのコメント    
-    resources :post_board_comments,only: [:index, :destroy]
+    # resources :post_board_comments,only: [:index, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
