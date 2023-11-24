@@ -6,37 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-##############管理者情報###########
-Admin.create!(
-  email: 'admin@admin',
-  encrypted_password: 'adminmin',
-  password: 'adminmin',
-  password_confirmation: 'adminmin',
-)
+
 
 ##########会員#############
 User.create!(
   name: "山田　太郎1",
   email: 'yamada@taro1',
-  encrypted_password: 'yamadataro1',
-  password: 'yamadataro1',
-  password_confirmation: 'yamadataro1',
+  encrypted_password: 'yamadataro',
+  password: 'yamadataro',
+  password_confirmation: 'yamadataro',
   )
   
 User.create!(
   name: "山田　太郎2",
   email: 'yamada@taro2',
-  encrypted_password: 'yamadataro2',
-  password: 'yamadataro2',
-  password_confirmation: 'yamadataro2',
+  encrypted_password: 'yamadataro',
+  password: 'yamadataro',
+  password_confirmation: 'yamadataro',
   )
 
 User.create!(
   name: "山田　太郎3",
   email: 'yamada@taro3',
-  encrypted_password: 'yamadataro3',
-  password: 'yamadataro3',
-  password_confirmation: 'yamadataro3',
+  encrypted_password: 'yamadataro',
+  password: 'yamadataro',
+  password_confirmation: 'yamadataro',
   )
 
 ##############ジャンル#############
@@ -366,7 +360,7 @@ Menu.create!(
 )
 
 #####ビール#########
-genre9 = Genre.find_by(name: "ハイボール")  # ジャンル名は対応するジャンル名に置き換えてください
+genre9 = Genre.find_by(name: "ビール")  # ジャンル名は対応するジャンル名に置き換えてください
 
 Menu.create!(
   genre_id: genre9.id,
