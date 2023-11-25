@@ -77,9 +77,9 @@ ActiveRecord::Schema.define(version: 2023_11_16_084434) do
     t.string "name", null: false
     t.text "explanation", null: false
     t.integer "price", null: false
+    t.integer "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "genre_id"
   end
 
   create_table "notices", force: :cascade do |t|
