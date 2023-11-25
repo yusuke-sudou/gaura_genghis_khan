@@ -1,10 +1,12 @@
 ja:
   activerecord:
     models:
-      post_board:'掲示板'
     attributes:
       post_board:
         body:'投稿内容'
+      review:
+        title: タイトル
+        body: 内容
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
