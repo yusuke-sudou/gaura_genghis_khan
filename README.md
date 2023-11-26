@@ -1,5 +1,5 @@
 # ガウラジンギスカン
-
+![about](https://github.com/yusuke-sudou/gaura_genghis_khan/assets/143806854/0a99ff10-a761-4631-b1d3-184b874f0be5)
 ## サイト概要
 ### サイトテーマ
 居酒屋「ガウラジンギスカン」のホームページ。
@@ -26,8 +26,11 @@
 - お店の雰囲気やおすすめメニューを知りたい時
 
 ## 設計書
-後ほど作成予定
+- ER図
+  ![ER図](https://github.com/yusuke-sudou/gaura_genghis_khan/assets/143806854/00b91428-164a-42d0-b224-e11e68cbc27a)
 
+- テーブル定義書
+https://docs.google.com/spreadsheets/d/12xZ2RBBtkh-QiTPfXszjiu2zrIKYMGng/edit#gid=1305394850
 ## 開発環境
 - OS:Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
