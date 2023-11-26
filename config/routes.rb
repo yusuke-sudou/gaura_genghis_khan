@@ -30,8 +30,10 @@ root 'public/homes#check'
     
     get 'users/my_page' => 'users#show', as: 'user' 
     get 'users/information_edit' => 'users#edit', as: 'users_information_edit'
+    get 'users/check' => 'users#check', as: 'users_check'
     patch 'users/information' => 'users#update', as: 'users_information'
     get 'users/favorites' => 'users#favorites', as: 'user_favorites'
+    patch 'users/leave' => 'users#leave', as: 'users_leave'
     
 #掲示板投稿コメント
     # resources:post_board_comments,only: [:create,:destroy]

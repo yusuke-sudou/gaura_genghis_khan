@@ -3,8 +3,20 @@ ja:
     models:
     attributes:
       post_board:
-        body:'投稿内容'
+        body: 投稿内容
       review:
+        title: タイトル
+        body: 内容
+      community:
+        name: コミュニティ名
+        explanation: 説明
+      genre:
+        name: ジャンル名
+      menu:
+        name: メニュー名
+        price: 税抜価格
+        genre: ジャンル
+      notice:
         title: タイトル
         body: 内容
     errors:

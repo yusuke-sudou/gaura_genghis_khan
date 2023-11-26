@@ -27,6 +27,14 @@ class Public::UsersController < ApplicationController
     render 'favorites'
   end
   
+  def leave
+      current_user.update(is_active: false)
+      # セッションをリセット
+      ## ログインはセッションで管理されているので、そのデータを削除
+      reset_session
+      redirect_to root_path, notice: "退会しました。"
+  end 
+  
   private
 
   def user_params
