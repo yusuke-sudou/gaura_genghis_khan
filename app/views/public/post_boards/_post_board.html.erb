@@ -1,0 +1,21 @@
+<% @post_boards.each do |post_board| %>
+  <% if post_board.id != nil %>
+    <div class="card" style="background-color: #dbd0e6;">
+      <div class="card-header">
+        <div class="row">
+          <p class="col-md-2"><%= post_board.user.name %>より：</p>
+          <p class="col-md-5"><%= post_board.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+        </div>
+      </div>
+    </div>
+    <div class="list-group list-group-flush" style="background-color: #f7fcfe;">
+      <li class="list-group-item"><%= post_board.body %>
+      </li>
+      <li class="list-group-item">
+        <% if current_user.id == post_board.user_id %>
+          <%= link_to "削除", community_post_board_path(post_board.community_id, post_board), method: :delete, class:"btn btn-danger", remote: true %>
+        <% end %>
+      </li>
+    </div>
+  <% end %>
+<% end %>
