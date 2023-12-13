@@ -31,6 +31,13 @@
 
 - テーブル定義書
 https://docs.google.com/spreadsheets/d/12xZ2RBBtkh-QiTPfXszjiu2zrIKYMGng/edit#gid=1305394850
+
+- 機能一覧
+https://docs.google.com/spreadsheets/d/1Vg7tge1G7mOuzFZ2d6uKyM22mA6StJeNX5wFoKEId5g/edit?usp=sharing
+
+- インフラ設計書
+https://docs.google.com/spreadsheets/d/1UGvNfFZgF9DLHzsyaMuChwo3vpjXBxvJs55mvB3Yn18/edit?usp=sharing
+
 ## 開発環境
 - OS:Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
