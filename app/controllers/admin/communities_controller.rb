@@ -1,5 +1,5 @@
 class Admin::CommunitiesController < ApplicationController
-  before_action :authenticate_admin!, only: [:edit, :update]
+  before_action :authenticate_admin!, only: [:index, :create, :show, :edit, :update, :destroy]
   def index
     @community = Community.new
     @communities = Community.all
