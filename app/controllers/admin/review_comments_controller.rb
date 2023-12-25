@@ -1,4 +1,5 @@
 class Admin::ReviewCommentsController < ApplicationController
+  before_action :authenticate_admin!, only: [:index, :destroy]
 
   def index
     @review_comments = ReviewComment.all

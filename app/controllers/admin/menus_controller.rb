@@ -1,5 +1,5 @@
 class Admin::MenusController < ApplicationController
-  before_action :authenticate_admin!, only: [:edit, :update]
+  before_action :authenticate_admin!, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   def index
     @menus_by_genre = Menu.all.group_by(&:genre_id)
   end

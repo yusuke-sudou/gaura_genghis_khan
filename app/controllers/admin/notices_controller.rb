@@ -1,5 +1,5 @@
 class Admin::NoticesController < ApplicationController
-  before_action :authenticate_admin!, only: [:edit, :update]
+  before_action :authenticate_admin!, only: [:index, :create, :edit, :update, :destroy]
   def index
     @notice = Notice.new
     @notices = Notice.all
