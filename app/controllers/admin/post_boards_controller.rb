@@ -1,4 +1,5 @@
 class Admin::PostBoardsController < ApplicationController
+  before_action :authenticate_admin!, only: [:index, :destroy]
   def index
     @community = Community.find(params[:community_id])
     @post_boards = @community.post_boards
