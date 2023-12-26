@@ -24,7 +24,7 @@
     <h1 class="logo text-white" style="font-family: Darumadrop One;">レビューいちらん</h1>
     
     <div class='row'>
-    <% @reviews.each do |review| %>
+    <% @reviews.order(created_at: :desc).each do |review| %>
     <div class="card col-md-5 m-3", style="background-color: #cee4ae;">
       <%= image_tag review.get_image %>
       <div class="card-body">

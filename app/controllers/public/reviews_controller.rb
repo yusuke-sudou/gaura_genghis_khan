@@ -8,7 +8,7 @@ class Public::ReviewsController < ApplicationController
     if params[:q].present?
       @reviews = @q.result(distinct: true)
     else
-      @reviews = Review.all
+      @reviews = Review.all.order(created_at: :desc) 
     end
   end
   
