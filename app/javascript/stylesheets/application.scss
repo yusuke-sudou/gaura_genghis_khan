@@ -68,7 +68,7 @@
   color: white;
 }
 
-///////////ハンバーガーメニュー/////////////
+///////////ハンバーガーメニュー/////////////////
 ////ボタンのCSS（クリック前）
 .nav_toggle {
   display: block;
@@ -173,4 +173,24 @@
   .aboutimage {
     max-width: 100%;
   }
+}
+
+//////////////トップページの新着レビュー画像のアスペクト比/////////////
+.top-review-img{
+  height: 300px;
+  object-fit: cover;
+}
+
+//////////////////////フッターの固定///////////////////
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+footer {
+  position: sticky;
+  top: 100vh;
 }
