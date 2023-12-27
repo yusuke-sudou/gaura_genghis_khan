@@ -1,10 +1,16 @@
 class Public::ReviewCommentsController < ApplicationController
+
   def create
     @review = Review.find(params[:review_id])
-    comment = current_user.review_comments.new(review_comment_params)
+    comment = current_user.review_comments.build(review_comment_params)
     comment.review_id = @review.id
-    comment.save
-    # redirect_to review_path(review)
+  
+    if comment.save
+      # コメントの保存に成功した場合の処理
+    else
+      # コメントの保存に失敗した場合の処理
+      redirect_to review_path(@review), alert: '未入力コメントは投稿できません。'
+    end
   end
   
   def destroy
