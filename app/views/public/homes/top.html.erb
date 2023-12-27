@@ -79,7 +79,8 @@
   <div class="row">
     <% @new_reviews.each do |review| %>
     <div class="col-lg-4">
-      <%= image_tag(review.image, class: "card-img-top", size: "300x300") %>
+      <%#= image_tag(review.image, class: "card-img-top", size: "300x300") %>
+      <%= image_tag(review.image, class: "card-img-top top-review-img") %>
     </div>   
       <div class="col-lg-8">
         <div class="card-body">
