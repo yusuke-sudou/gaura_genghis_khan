@@ -13,7 +13,7 @@
       </li>
       <li class="list-group-item">
         <% if current_user.id == post_board.user_id %>
-          <%= link_to "削除", community_post_board_path(post_board.community_id, post_board), method: :delete, class:"btn btn-danger", remote: true %>
+          <%= link_to "削除", community_post_board_path(post_board.community_id, post_board), method: :delete, class:"btn btn-danger", remote: true, "data-confirm" => "本当に削除しますか？" %>
         <% end %>
       </li>
     </div>
