@@ -2,13 +2,23 @@ class Public::ReviewsController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
 
   
+  # def index
+  #   @review = Review.new
+  #   @q = Review.ransack(params[:q])
+  #   if params[:q].present?
+  #     @reviews = @q.result(distinct: true)
+  #   else
+  #     @reviews = Review.all.order(created_at: :desc) 
+  #   end
+  # end
+
   def index
     @review = Review.new
     @q = Review.ransack(params[:q])
     if params[:q].present?
-      @reviews = @q.result(distinct: true)
+      @reviews = @q.result(distinct: true).page(params[:page]).per(6)  # ページネーションの設定を追加
     else
-      @reviews = Review.all.order(created_at: :desc) 
+      @reviews = Review.all.order(created_at: :desc).page(params[:page]).per(6)  # ページネーションの設定を追加
     end
   end
   
